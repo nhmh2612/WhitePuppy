@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "CNu3O7L3dqHDnzWvsaGdwFMssPvv+wlItakxBnfgHzHjhQnUptuYHkdCVDWE5XolFpsxuY/G6dagjNTfOClc6g==",
+  "success": true,
+  "projectFilePath": "D:\\New folder (2)\\ConsoleApp6\\ConsoleApp6\\WhitePuppyV0.1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ADMIN\\.nuget\\packages\\packetdotnet\\1.4.7\\packetdotnet.1.4.7.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\sharppcap\\6.3.0\\sharppcap.6.3.0.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\system.text.encoding.codepages\\6.0.0\\system.text.encoding.codepages.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

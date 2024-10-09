@@ -1,0 +1,18 @@
+D:\New folder (2)\ConsoleApp6\ConsoleApp6\bin\Debug\net8.0\Lập trình mạng.exe
+D:\New folder (2)\ConsoleApp6\ConsoleApp6\bin\Debug\net8.0\Lập trình mạng.deps.json
+D:\New folder (2)\ConsoleApp6\ConsoleApp6\bin\Debug\net8.0\Lập trình mạng.runtimeconfig.json
+D:\New folder (2)\ConsoleApp6\ConsoleApp6\bin\Debug\net8.0\Lập trình mạng.dll
+D:\New folder (2)\ConsoleApp6\ConsoleApp6\bin\Debug\net8.0\Lập trình mạng.pdb
+D:\New folder (2)\ConsoleApp6\ConsoleApp6\bin\Debug\net8.0\PacketDotNet.dll
+D:\New folder (2)\ConsoleApp6\ConsoleApp6\bin\Debug\net8.0\SharpPcap.dll
+D:\New folder (2)\ConsoleApp6\ConsoleApp6\obj\Debug\net8.0\Lập trình mạng.csproj.AssemblyReference.cache
+D:\New folder (2)\ConsoleApp6\ConsoleApp6\obj\Debug\net8.0\Lập trình mạng.GeneratedMSBuildEditorConfig.editorconfig
+D:\New folder (2)\ConsoleApp6\ConsoleApp6\obj\Debug\net8.0\Lập trình mạng.AssemblyInfoInputs.cache
+D:\New folder (2)\ConsoleApp6\ConsoleApp6\obj\Debug\net8.0\Lập trình mạng.AssemblyInfo.cs
+D:\New folder (2)\ConsoleApp6\ConsoleApp6\obj\Debug\net8.0\Lập trình mạng.csproj.CoreCompileInputs.cache
+D:\New folder (2)\ConsoleApp6\ConsoleApp6\obj\Debug\net8.0\Lập trìn.362C4323.Up2Date
+D:\New folder (2)\ConsoleApp6\ConsoleApp6\obj\Debug\net8.0\Lập trình mạng.dll
+D:\New folder (2)\ConsoleApp6\ConsoleApp6\obj\Debug\net8.0\refint\Lập trình mạng.dll
+D:\New folder (2)\ConsoleApp6\ConsoleApp6\obj\Debug\net8.0\Lập trình mạng.pdb
+D:\New folder (2)\ConsoleApp6\ConsoleApp6\obj\Debug\net8.0\Lập trình mạng.genruntimeconfig.cache
+D:\New folder (2)\ConsoleApp6\ConsoleApp6\obj\Debug\net8.0\ref\Lập trình mạng.dll
