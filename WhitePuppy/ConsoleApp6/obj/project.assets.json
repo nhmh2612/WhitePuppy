@@ -206,11 +206,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\New folder (2)\\ConsoleApp6\\ConsoleApp6\\WhitePuppyV0.1.csproj",
+      "projectUniqueName": "D:\\New folder (2)\\WhitePuppy\\ConsoleApp6\\WhitePuppyV0.1.csproj",
       "projectName": "WhitePuppyV0.1",
-      "projectPath": "D:\\New folder (2)\\ConsoleApp6\\ConsoleApp6\\WhitePuppyV0.1.csproj",
+      "projectPath": "D:\\New folder (2)\\WhitePuppy\\ConsoleApp6\\WhitePuppyV0.1.csproj",
       "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "D:\\New folder (2)\\ConsoleApp6\\ConsoleApp6\\obj\\",
+      "outputPath": "D:\\New folder (2)\\WhitePuppy\\ConsoleApp6\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",

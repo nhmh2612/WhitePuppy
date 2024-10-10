@@ -8,7 +8,7 @@ class Program
     {
         try
         {
-            // Lấy danh sách các thiết bị mạng
+            // Lay danh sach cac thiet bi mang
             var devices = CaptureDeviceList.Instance;
 
             if (devices.Count < 1)
@@ -17,42 +17,37 @@ class Program
                 return;
             }
 
-            // Hiển thị danh sách các thiết bị mạng
+            // Hien thi danh sach cac thiet bi mang
+            Console.WriteLine("Fix_V0.2");
             Console.WriteLine("Danh sach thiet bi mang:");
             for (int i = 0; i < devices.Count; i++)
             {
                 Console.WriteLine($"{i}: {devices[i].Description}");
             }
 
-            // Vòng lặp yêu cầu người dùng chọn thiết bị hợp lệ
+            // Yeu cau nguoi dung chon thiet bi hop le
             int deviceIndex = -1;
-            while (deviceIndex < 0 || deviceIndex >= devices.Count)
+            do
             {
                 Console.Write("Chon thiet bi (nhap so): ");
-                string input = Console.ReadLine() ?? string.Empty;
-                if (!int.TryParse(input, out deviceIndex) || deviceIndex < 0 || deviceIndex >= devices.Count)
-                {
-                    Console.WriteLine("Chon thiet bi khong hop le. Vui long thu lai.");
-                    deviceIndex = -1; // Reset lại nếu nhập không hợp lệ
-                }
-            }
+            } while (!int.TryParse(Console.ReadLine(), out deviceIndex) || deviceIndex < 0 || deviceIndex >= devices.Count);
 
             var device = devices[deviceIndex];
 
-            // Đăng ký sự kiện khi có gói tin mới
+            // Dang ky su kien khi co goi tin moi
             device.OnPacketArrival += new PacketArrivalEventHandler(Device_OnPacketArrival);
 
-            // Mở thiết bị để bắt gói tin
+            // Mo thiet bi de bat goi tin
             device.Open(DeviceModes.Promiscuous);
             Console.WriteLine("Bat goi tin (Enter de dung lai)");
 
-            // Bắt gói tin
+            // Bat goi tin
             device.StartCapture();
 
-            // Chờ người dùng nhấn ENter để dừng
+            // Cho nguoi dung nhan Enter de dung
             Console.ReadLine();
 
-            // Dừng bắt gói tin và đóng thiết bị
+            // Dung bat goi tin va dong thiet bi
             device.StopCapture();
             device.Close();
         }
@@ -62,94 +57,72 @@ class Program
         }
     }
 
-    // Xử lý khi có gói tin đến
+    // Xu ly khi co goi tin den
     private static void Device_OnPacketArrival(object sender, PacketCapture e)
     {
         try
         {
-            // Lấy dữ liệu thô của gói tin từ sự kiện
-            var rawPacket = e.GetPacket();//Bao gồm tất cả dữ liệu bắt được
+            // Lay du lieu tho cua goi tin tu su kien
+            var rawPacket = e.GetPacket();
 
-            // Phân tích gói tin với kiểu link layer và dữ liệu gói tin
+            // Phan tich goi tin voi kieu link layer va du lieu goi tin
             var packet = Packet.ParsePacket(rawPacket.LinkLayerType, rawPacket.Data);
-               //ParsePacket(): Để phân tích dữ liệu gói tin thô -> phân tích để tạo ra các 'Packet',(packet bao gồm IP, UDP, TCP,...)
 
-            // Trích xuất gói tin IPv4
+            // Xu ly goi tin IPv4
             var ipPacket = packet.Extract<IPv4Packet>();
-
             if (ipPacket != null)
             {
-                try
-                {
-                    // Lấy địa chỉ IP nơi gửi và nơi nhận
-                    var srcIp = ipPacket.SourceAddress.ToString();
-                    var dstIp = ipPacket.DestinationAddress.ToString();
-
-                    //Nhớ thêm $ và {cái gì đó} để truyền dữ liệu vào
-                    Console.WriteLine($"\nIP: {srcIp} -> {dstIp}");
-                    Console.WriteLine($"Noi gui: {srcIp}");
-                    Console.WriteLine($"Noi nhan: {dstIp}");
-
-                }
-                catch (Exception ex )
-                {
-                    Console.WriteLine("Loi IPV4.94: ",ex.Message);
-                }
+                Console.WriteLine($"\nIPv4: {ipPacket.SourceAddress} -> {ipPacket.DestinationAddress}");
             }
-            else 
+
+            // Xu ly goi tin IPv6
+            var ipv6Packet = packet.Extract<IPv6Packet>();
+            if (ipv6Packet != null)
             {
-                //Xuất để kiểm tra coi có lỗi không :))
-                Console.WriteLine($"Day khong phai la IPV4");
+                Console.WriteLine($"\nIPv6: {ipv6Packet.SourceAddress} -> {ipv6Packet.DestinationAddress}");
             }
 
+            // Xu ly goi tin ICMP
+            var icmpPacket = packet.Extract<IcmpV4Packet>();
+            if (icmpPacket != null)
+            {
+                Console.WriteLine($"\nICMP: Type {icmpPacket.TypeCode}");
+            }
 
-            // Trích xuất và xử lý gói tin TCP
-            var tcpPacket = packet.Extract<TcpPacket>(); //Nội dung chưa được mã hóa
-
+            // Xu ly goi tin TCP
+            var tcpPacket = packet.Extract<TcpPacket>();
             if (tcpPacket != null)
-            {               
-                //Hiện thị cổng nguồn và cổng đích
-                Console.WriteLine($"Goi tin TCP: {tcpPacket.SourcePort} -> {tcpPacket.DestinationPort}");
-
-                //Hiện thị và hiển thị dữ liệu gói tin lên payload
+            {
+                Console.WriteLine($"TCP: {tcpPacket.SourcePort} -> {tcpPacket.DestinationPort}");
                 var payload = tcpPacket.PayloadData;
                 if (payload != null && payload.Length > 0)
                 {
-                    //BitConverter: chuyển đổi mảng payload thành chuỗi các giá trị thập lục phân
-                    Console.WriteLine($"Noi dung: {BitConverter.ToString(payload)}");
-                }
-                else
-                {
-                    Console.WriteLine("Khong co noi dung TCP.");
+                    // Gioi han so luong byte hien thi trong payload (toi da 50 byte)
+                    int maxLength = Math.Min(payload.Length, 50);
+                    Console.WriteLine($"Noi dung TCP: {BitConverter.ToString(payload, 0, maxLength)}" +
+                                      (payload.Length > maxLength ? "..." : ""));
                 }
             }
-            else
-            {
-                //Xuất để kiểm tra coi có lỗi không :))
-                Console.WriteLine("Chuc mung loi roi TCP.127");
-            }
-            //Nội dung chưa được mã hóa
-            // Trích xuất và xử lý gói tin UDP
-            var udpPacket = packet.Extract<UdpPacket>();
 
+            // Xu ly goi tin UDP
+            var udpPacket = packet.Extract<UdpPacket>();
             if (udpPacket != null)
             {
-                Console.WriteLine($"Goi tin UDP: {udpPacket.SourcePort} -> {udpPacket.DestinationPort}");
-
+                Console.WriteLine($"UDP: {udpPacket.SourcePort} -> {udpPacket.DestinationPort}");
                 var payload = udpPacket.PayloadData;
                 if (payload != null && payload.Length > 0)
                 {
-                    Console.WriteLine($"Noi dung: {BitConverter.ToString(payload)}");
-                }
-                else
-                {
-                    Console.WriteLine("Neu co cai nay xuat hien loi 100% UDP.1144.");
+                    // Gioi han so luong byte hien thi trong payload (toi da 50 byte)
+                    int maxLength = Math.Min(payload.Length, 50);
+                    Console.WriteLine($"Noi dung UDP: {BitConverter.ToString(payload, 0, maxLength)}" +
+                                      (payload.Length > maxLength ? "..." : ""));
                 }
             }
-            else
+
+            // Kiem tra neu khong phai cac goi tin pho bien
+            if (ipPacket == null && ipv6Packet == null && icmpPacket == null && tcpPacket == null && udpPacket == null)
             {
-                //Xuất để kiểm tra coi có lỗi không :))
-                Console.WriteLine("Chuc mung loi roi UPD.150");
+                Console.WriteLine("Goi tin khong xac dinh hoac khong duoc ho tro.");
             }
         }
         catch (Exception ex)
