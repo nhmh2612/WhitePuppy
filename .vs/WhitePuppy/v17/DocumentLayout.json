@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\New folder (2)\\WhitePuppy\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A7506642-A706-4142-A896-0BC2817DA81A}|ConsoleApp6\\WhitePuppyV0.2.csproj|d:\\new folder (2)\\whitepuppy\\consoleapp6\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7506642-A706-4142-A896-0BC2817DA81A}|ConsoleApp6\\WhitePuppyV0.2.csproj|solutionrelative:consoleapp6\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7506642-A706-4142-A896-0BC2817DA81A}|ConsoleApp6\\WhitePuppyV0.2.csproj|d:\\new folder (2)\\whitepuppy\\consoleapp6\\whitepuppyv0.2.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A7506642-A706-4142-A896-0BC2817DA81A}|ConsoleApp6\\WhitePuppyV0.2.csproj|solutionrelative:consoleapp6\\whitepuppyv0.2.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WhitePuppyV0.2",
+              "DocumentMoniker": "D:\\New folder (2)\\WhitePuppy\\ConsoleApp6\\WhitePuppyV0.2.csproj",
+              "RelativeDocumentMoniker": "ConsoleApp6\\WhitePuppyV0.2.csproj",
+              "ToolTip": "D:\\New folder (2)\\WhitePuppy\\ConsoleApp6\\WhitePuppyV0.2.csproj",
+              "RelativeToolTip": "ConsoleApp6\\WhitePuppyV0.2.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-10-13T17:10:38.428Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\New folder (2)\\WhitePuppy\\ConsoleApp6\\Program.cs",
+              "RelativeDocumentMoniker": "ConsoleApp6\\Program.cs",
+              "ToolTip": "D:\\New folder (2)\\WhitePuppy\\ConsoleApp6\\Program.cs",
+              "RelativeToolTip": "ConsoleApp6\\Program.cs",
+              "ViewState": "AQIAADQAAAAAAAAAAAAQwAsAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T17:36:20.2Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
