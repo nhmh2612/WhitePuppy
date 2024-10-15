@@ -12,3 +12,4 @@
   + Post-Condition: trạng thái hệ thống như nào, có ổn định khi chạy phần mềm hay không
 
 -Miêu tả càng kĩ càng tốt
+
